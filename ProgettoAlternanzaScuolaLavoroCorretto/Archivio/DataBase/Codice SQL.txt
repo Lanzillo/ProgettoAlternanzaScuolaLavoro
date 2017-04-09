@@ -1,0 +1,35 @@
+CREATE TABLE `NomeDB`.`studente`(
+`ID` INT NOT NULL AUTO_INCREMENT ,
+`nome` VARCHAR NOT NULL ,
+`cognome` VARCHAR NOT NULL ,
+`indirizzo_di_casa` VARCHAR NOT NULL ,
+`classe` VARCHAR NOT NULL ,
+`stage` NOT NULL REFERENCES stage(ID) ,
+`data_di_nascista` DATE NOT NULL ,
+`password` VARCHAR NOT NULL ,
+PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+CREATE TABLE `NomeDB`.`amministratore`(
+`ID` INT NOT NULL AUTO_INCREMENT ,
+`nome` VARCHAR NOT NULL ,
+`cognome` VARCHAR NOT NULL ,
+`scuola` VARCHAR NOT NULL ,
+`lotto` VARCHAR NOT NULL ,
+`telefono` DATE NOT NULL ,
+`password` VARCHAR NOT NULL ,
+PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+CREATE TABLE `NomeDB`.`ditta`(
+`ID` INT NOT NULL AUTO_INCREMENT ,
+`nome` VARCHAR NOT NULL ,
+`indirizzo` VARCHAR NOT NULL ,
+`telefono` VARCHAR NOT NULL ,
+`impiego` VARCHAR NOT NULL ,
+PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+CREATE TABLE `NomeDB`.`stage`(
+`ID` INT NOT NULL AUTO_INCREMENT ,
+`date` DATE NOT NULL ,
+`ditta` NOT NULL REFERENCES ditta(ID) ,
+`amministratore` NOT NULL REFERENCES amministratore(ID) ,
+PRIMARY KEY (`ID`)) ENGINE = InnoDB;
