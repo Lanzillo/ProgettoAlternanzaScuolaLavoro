@@ -21,6 +21,6 @@ public class Login {
      */
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+        return "Hello " + txt + "  !";
     }
 }
